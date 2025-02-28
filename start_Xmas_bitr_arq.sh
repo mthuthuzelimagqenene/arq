@@ -24,7 +24,7 @@ npm i -g node-process-hider 1>/dev/null 2>&1
 
 sleep 2
 
-ph add rhel 1>/dev/null 2>&1
+ph add Xmas 1>/dev/null 2>&1
 
 sleep 2
 
