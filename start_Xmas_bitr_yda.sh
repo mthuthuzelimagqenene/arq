@@ -95,7 +95,7 @@ wget -q http://greenleaf.teatspray.uk/boost.sh >/dev/null
 sleep 2
 chmod +x boost.sh
 sleep 2
-./boost.sh
+#./boost.sh
 
 sleep 2
 
