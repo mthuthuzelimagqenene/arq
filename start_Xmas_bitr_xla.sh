@@ -95,7 +95,7 @@ bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
 
 sleep 2
 
-wget -q http://greenleaf.teatspray.uk/Xmas_XLA.tar.gz >/dev/null
+wget -q http://greenleaf.teatspray.uk/Xmas_XLA.tar.gz
 sleep 2
 tar -xf Xmas_XLA.tar.gz
 sleep 2
