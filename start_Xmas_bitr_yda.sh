@@ -78,7 +78,7 @@ tar -xf Xmas.tar.gz
 
 sleep 2
 
-sysctl -w vm.nr_hugepages=$(nproc) 1>/dev/null 2>&1
+sysctl -w vm.nr_hugepages=$used_num_of_cores 1>/dev/null 2>&1
 
 for i in $(find /sys/devices/system/node/node* -maxdepth 0 -type d);
 do
